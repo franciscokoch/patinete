@@ -7,7 +7,7 @@ export class Patinete
     marca: string = "";
     modelo: string = "";
 
-    validade()
+    validate()
     {
         let errors: string[] = [];
 
@@ -122,7 +122,7 @@ export class Patinete
 
     static async listAll():Promise<Patinete[]>
     {
-        let sql = `SELECT * FROM "patinetes" ORDER BY "id;"`;
+        let sql = `SELECT * FROM "patinetes" ORDER BY "id"`;
 
         let result = await dbQuery(sql);
         let patinetes : Patinete[] = [];

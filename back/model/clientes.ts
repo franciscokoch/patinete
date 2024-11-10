@@ -10,7 +10,7 @@ export class Cliente
     cidade: string = "";
     siglaUf: string = "";
 
-    validade()
+    validate()
     {
         let errors: string[] = [];
 
@@ -145,7 +145,7 @@ export class Cliente
 
     static async listAll():Promise<Cliente[]>
     {
-        let sql = `SELECT * FROM "clientes" ORDER BY "id;"`;
+        let sql = `SELECT * FROM "clientes" ORDER BY "id"`;
 
         let result = await dbQuery(sql);
         let clientes : Cliente[] = [];

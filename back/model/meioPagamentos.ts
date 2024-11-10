@@ -5,7 +5,7 @@ export class MeioDePagamento
     id: number = 0;
     nome: string = "";
 
-    validade()
+    validate()
     {
         let errors: string[] = [];
 
@@ -104,7 +104,7 @@ export class MeioDePagamento
 
     static async listAll():Promise<MeioDePagamento[]>
     {
-        let sql = `SELECT * FROM "meioPagamentos" ORDER BY "id;"`;
+        let sql = `SELECT * FROM "meioPagamentos" ORDER BY "id"`;
 
         let result = await dbQuery(sql);
         let meioPagamentos : MeioDePagamento[] = [];

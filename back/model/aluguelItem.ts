@@ -9,7 +9,7 @@ export class AluguelItem
     valorUnitario: number = 0;
     valorTotal: number = 0;
 
-    validade()
+    validate()
     {
         let errors: string[] = [];
 
@@ -120,7 +120,7 @@ export class AluguelItem
 
     static async listAll():Promise<AluguelItem[]>
     {
-        let sql = `SELECT * FROM "aluguelItem" ORDER BY "id;"`;
+        let sql = `SELECT * FROM "aluguelItem" ORDER BY "id"`;
 
         let result = await dbQuery(sql);
         let aluguelItens : AluguelItem[] = [];
