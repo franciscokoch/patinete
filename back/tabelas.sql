@@ -50,3 +50,10 @@ CREATE TABLE "aluguelItem" (
     FOREIGN KEY ("idAluguel") REFERENCES alugueis ("id"),
     FOREIGN KEY ("idPatinete") REFERENCES patinetes ("id")
 );
+
+CREATE TABLE "usuarios" (
+    "id" serial,
+    "usuario" varchar(200) NOT NULL,
+    "senha" varchar(200) NOT NULL,
+    PRIMARY KEY ("id")
+);

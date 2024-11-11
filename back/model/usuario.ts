@@ -1,31 +1,38 @@
 import { client, dbQuery } from './../database';
 
-export class MeioDePagamento
+export class Usuario
 {
     id: number = 0;
-    nome: string = "";
+    usuario: string = "";
+    senha: string = "";
 
     validate()
     {
         let errors: string[] = [];
 
-        if ( this.nome.length == 0)
+        if ( this.usuario.length == 0)
         {
-            errors.push("Nome é obrigatório.");
+            errors.push("Usuario é obrigatório.");
+        }
+        if ( this.senha.length == 0)
+        {
+            errors.push("Senha é obrigatório.");
         }
         return errors;
     }
 
-    public async insert():Promise<MeioDePagamento|null>
+    public async insert():Promise<Usuario|null>
     {
-        let sql = `INSERT INTO "meioPagamento" 
+        let sql = `INSERT INTO "usuarios" 
     (
-    "nome"
+    "usuario", 
+    "senha"
     ) 
-    VALUES ($1) RETURNING id`;
+    VALUES ($1,$2) RETURNING id`;
 
         let params = [
-            this.nome,
+            this.usuario,
+            this.senha
         ];
 
         let resultado = await dbQuery(sql,params);
@@ -39,16 +46,18 @@ export class MeioDePagamento
         return null;
     }
 
-    public async update():Promise<MeioDePagamento|null>
+    public async update():Promise<Usuario|null>
     {
         let sql = `
-        UPDATE "meioPagamento" 
+        UPDATE "usuarios" 
         SET 
-        "nome" = $1,
-        WHERE id = $2`;    
+        "usuario" = $1,
+        "senha" = $2,
+        WHERE id = $3`;    
         
         let params = [
-            this.nome,
+            this.usuario,
+            this.senha,
             this.id
         ];
 
@@ -62,7 +71,7 @@ export class MeioDePagamento
         return null;
     }
 
-    public async save():Promise<MeioDePagamento|null>
+    public async save():Promise<Usuario|null>
     {
         if (this.id)
         {
@@ -72,9 +81,9 @@ export class MeioDePagamento
         return await this.insert();
     }
 
-    public async delete():Promise<MeioDePagamento|null>
+    public async delete():Promise<Usuario|null>
     {
-        let sql = `DELETE FROM "meioPagamento" WHERE id = $1 RETURNING id;`;
+        let sql = `DELETE FROM "usuarios" WHERE id = $1 RETURNING id;`;
         let resultado = await dbQuery(sql,[this.id]);
 
         if (resultado.length > 0 )
@@ -86,37 +95,37 @@ export class MeioDePagamento
         return null;
     }
 
-    static async findOneById(id:number):Promise<MeioDePagamento|null>
+    static async findOneById(id:number):Promise<Usuario|null>
     {
-        let sql = `SELECT * FROM "meioPagamento"
+        let sql = `SELECT * FROM "usuarios"
         WHERE id = $1 LIMIT 1`;
         let resultado = await dbQuery(sql,[id]);
 
         if (resultado.length > 0)
         {
-            let meioPagamento = new MeioDePagamento();
-            Object.assign(meioPagamento,resultado[0]);
-            return meioPagamento;
+            let usuario = new Usuario();
+            Object.assign(usuario,resultado[0]);
+            return usuario;
         }
 
         return null;
     }
 
-    static async listAll():Promise<MeioDePagamento[]>
+    static async listAll():Promise<Usuario[]>
     {
-        let sql = `SELECT * FROM "meioPagamento" ORDER BY "id"`;
+        let sql = `SELECT * FROM "usuarios" ORDER BY "id"`;
 
         let result = await dbQuery(sql);
-        let meioPagamentos : MeioDePagamento[] = [];
+        let usuarios : Usuario[] = [];
 
         for (let i = 0 ; i < result.length; i++)
         {
             let json = result[i];
-            let meioPagamento = new MeioDePagamento();
-            Object.assign(meioPagamento, json);
-            meioPagamentos.push(meioPagamento);
+            let usuario = new Usuario();
+            Object.assign(usuario, json);
+            usuarios.push(usuario);
         }
 
-        return meioPagamentos;
+        return usuarios;
     }
 }

@@ -1,0 +1,51 @@
+html * {
+    font-family: "Nunito", sans-serif;
+}
+
+body {
+    background: #ccc;
+    color: #333;
+}
+
+.btn, button {
+    background: blue;
+    color: #fff;
+    border-radius: 10px;
+    padding: 4px 20px;
+    text-decoration: none;
+    font-size: 80%;
+    border: none;
+    margin: 2px;
+}
+
+.table {
+    background: #fff;
+    border: solid 1px #aaa;
+    border-collapse: collapse;
+}
+
+.table th {
+    border: solid 1px #aaa;
+    padding: 4px;
+    text-align: left;  
+}
+
+.table td {
+    border: solid 1px #aaa;
+    padding: 4px;
+    text-align: left;
+}
+
+.form-label {
+    display:inline-block;
+    width:200px
+}
+
+.form-input {
+    border-radius: 4px;
+    border: solid 1px #aaa;
+    padding: 4px;
+    text-align: left;
+    width:200px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <title>Sistema de pessoa</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com/" />
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./css/sidebar.css">
+        <link rel="stylesheet" href="./css/variables.css">
+        <script src="https://kit.fontawesome.com/69970a57fe.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="./css/style.css" type="text/css" media="all">
+    </head>
+    <body style="font-family: Arial;">
+
+        <nav id="sidebar">
+            <div id="sideBarContent">
+                <div id="user">
+                    <img src="./images/Sample_User_Icon.png" id="userAvatar" alt="Avatar do usuário">
+        
+                    <p id="userDescrition">
+                        <span class="itemDescription">
+                            Juca Bala
+                        </span>
+                        <span class="itemDescription">
+                            Administrador
+                        </span>
+                    </p>
+                </div>
+        
+                <ul id="sideItems">
+                    <li class="sideItem active" href="/front/admin.html">
+                        <a href="/front/admin.html">
+                            <i class="fa-solid fa-chart-simple"></i>
+                            <span class="itemDescription">Cadastros</span>
+                        </a>
+                    </li>
+                    <li class="sideItem" href="/front/payment.html">
+                        <a href="/front/payment.html">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                            <span class="itemDescription">Pagamento</span>
+                        </a>
+                    </li>
+                    <li class="sideItem" href="/front/unit.html">
+                        <a href="/front/unit.html">
+                            <i class="fa-solid fa-weight-hanging"></i>
+                            <span class="itemDescription">Unidade</span>
+                        </a>
+                    </li>
+                    <li class="sideItem">
+                        <a href="/front/product.html">
+                            <i class="fa-solid fa-box-open"></i>
+                            <span class="itemDescription">Editar</span>
+                        </a>
+                    </li>
+                </ul>
+        
+                <button id="openBtn">
+                    <i id="openBtnIcon" class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div id="logout">
+                <button id="logoutBtn" onclick="logout()">
+                    <i class="fa-solid fa-sign-out"></i>
+                    <span class="itemDescription">Sair</span>
+                </button>
+            </div>
+        </nav>
+
+        <h1>Sistema de cadastro</h1>
+        <a class="btn" href="cliente.html">Adicionar cliente</a>
+        <br/>
+        <br/>
+        <table class="table" style="width:800px">
+            <thead>
+                <tr>
+                    <th>Ações</th>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th>
+                    <th>Cidade</th>
+                    <th>UF</th>
+                </tr>
+            </thead>
+            <tbody id="tbody-clientes">
+
+            </tbody>
+        </table>
+        <script src="./js/clientes.js"></script>
+        <script src="./js/fetch.js"></script>
+        <script>
+            listarClientes();
+        </script>
+    </body>
+</html>
