@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="./css/sidebar.css">
     <link rel="stylesheet" href="./css/variables.css">
     <link rel="stylesheet" href="./css/admin.css">
+    <link rel="stylesheet" href="./css/label.css">
     <script src="https://kit.fontawesome.com/69970a57fe.js" crossorigin="anonymous"></script>
-    <title>Admin</title>
+    <title>Crie Patinetes</title>
 </head>
 <body>
     <nav id="sidebar">
@@ -40,20 +41,26 @@
                 </li>
                 <li class="sideItem" href="/front/cliente.html">
                     <a href="/front/cliente.html">
-                        <i class="fa-solid fa-clipboard-list"></i>
+                        <i class="fa-solid fa-users"></i>
                         <span class="itemDescription">Clientes</span>
                     </a>
                 </li>
                 <li class="sideItem active" href="/front/pagamento.html">
                     <a href="/front/pagamento.html">
-                        <i class="fa-solid fa-weight-hanging"></i>
+                        <i class="fa-solid fa-credit-card"></i>
                         <span class="itemDescription">Unidade</span>
                     </a>
                 </li>
                 <li class="sideItem" href="/front/patinete.html">
                     <a href="/front/patinete.html">
-                        <i class="fa-solid fa-box-open"></i>
+                        <i class="fa-solid fa-heart-pulse"></i>
                         <span class="itemDescription">Editar</span>
+                    </a>
+                </li>
+                <li class="sideItem">
+                    <a href="/front/aluguel.html">
+                        <i class="fa-solid fa-star-of-life"></i>
+                        <span class="itemDescription">Aluguel</span>
                     </a>
                 </li>
             </ul>
@@ -73,15 +80,14 @@
 
     <main class="paymentContainer">
         <div class="paymentTitle">
-            <h1 id="pageTitle">Meios de pagamento</h1>
-            <p>Área de cadastro e administração de formas de pagamento.</p>
+            <h1 id="pageTitle">Cadastro de meios de pagamento</h1>
+            <p>Área para cadastro e administração de formas de pagamento.</p>
         </div>
 
         <div class="paymentLabel">
             <h5 id="labelTitle">Adicionar forma de pagamento: </h5>
             <label for="nome">Meio de pagamento: </label>
             <input id="nome" placeholder="Ex: PIX, Cartão..."/>
-            <br />
             <br />
             <button id="paymentBtn" onclick="gravarPagamento()">Adicionar pagamento</button>
         </div>

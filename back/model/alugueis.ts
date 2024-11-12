@@ -3,9 +3,9 @@ import { client, dbQuery } from './../database';
 export class Aluguel
 {
     id: number = 0;
-    idCliente: number = 0;
-    idPatinete: number = 0;
-    idMeioPagamento: number = 0;
+    //idCliente: number = 0;
+    //idPatinete: number = 0;
+    //idMeioPagamento: number = 0;
     dataAluguel: string = "";
     horaAluguel: string = "";
     dataDevolucao: string = "";
@@ -42,6 +42,16 @@ export class Aluguel
     public async insert():Promise<Aluguel|null>
     {
         let sql = `INSERT INTO "alugueis" 
+    ( 
+    "dataAluguel",
+    "horaAluguel",
+    "dataDevolucao",
+    "horaDevolucao",
+    "valorTotal"
+    ) 
+    VALUES ($1,$2,$3,$4,$5) RETURNING id`;
+
+    /*let sql = `INSERT INTO "alugueis" 
     (
     "idCliente", 
     "idPatinete",
@@ -52,12 +62,12 @@ export class Aluguel
     "horaDevolucao",
     "valorTotal"
     ) 
-    VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id`;
+    VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id`;*/
 
         let params = [
-            this.idCliente,
-            this.idPatinete,
-            this.idMeioPagamento,
+            //this.idCliente,
+            //this.idPatinete,
+            //this.idMeioPagamento,
             this.dataAluguel,
             this.horaAluguel,
             this.dataDevolucao,
@@ -79,7 +89,17 @@ export class Aluguel
     public async update():Promise<Aluguel|null>
     {
         let sql = `
-        UPDATE "algueis" 
+        UPDATE "alugueis" 
+        SET 
+        "dataAluguel" = $1,
+        "horaAluguel" = $2,
+        "dataDevolucao" = $3,
+        "horaDevolucao" = $4,
+        "valorTotal" = $5
+        WHERE id = $6`;    
+        
+        /*let sql = `
+        UPDATE "alugueis" 
         SET 
         "idCliente" = $1,
         "idPatinete" = $2,
@@ -89,12 +109,12 @@ export class Aluguel
         "dataDevolucao" = $6,
         "horaDevolucao" = $7,
         "valorTotal" = $8
-        WHERE id = $9`;    
-        
+        WHERE id = $9`; */
+
         let params = [
-            this.idCliente,
-            this.idPatinete,
-            this.idMeioPagamento,
+            //this.idCliente,
+            //this.idPatinete,
+            //this.idMeioPagamento,
             this.dataAluguel,
             this.horaAluguel,
             this.dataDevolucao,
@@ -156,6 +176,13 @@ export class Aluguel
     static async listAll():Promise<Aluguel[]>
     {
         let sql = `SELECT * FROM "alugueis" ORDER BY "id"`;
+
+        /*`SELECT a."id", b."nome", d."id",
+        a."dataAluguel", a."horaAluguel", a."dataDevolucao",
+        a."horaDevolucao", a."valorTotal", c."nome" FROM "alugueis" a
+        LEFT JOIN "clientes" b ON a."idCliente" = b."id"
+        LEFT JOIN "meioPagamento" c ON a."idMeioPagamento" = c."id"
+        LEFT JOIN "patinetes" d ON a."idPatinete" = d."id" AS idPatinete ORDER BY a."id";`*/
 
         let result = await dbQuery(sql);
         let alugueis : Aluguel[] = [];

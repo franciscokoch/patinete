@@ -38,7 +38,7 @@
                         <span class="itemDescription">Cadastros</span>
                     </a>
                 </li>
-                <li class="sideItem active" href="/front/cliente.html">
+                <li class="sideItem" href="/front/cliente.html">
                     <a href="/front/cliente.html">
                         <i class="fa-solid fa-users"></i>
                         <span class="itemDescription">Clientes</span>
@@ -53,10 +53,10 @@
                 <li class="sideItem">
                     <a href="/front/patinete.html">
                         <i class="fa-solid fa-heart-pulse"></i>
-                        <span class="itemDescription">Editar</span>
+                        <span class="itemDescription">Patinete</span>
                     </a>
                 </li>
-                <li class="sideItem">
+                <li class="sideItem active">
                     <a href="/front/aluguel.html">
                         <i class="fa-solid fa-star-of-life"></i>
                         <span class="itemDescription">Aluguel</span>
@@ -79,32 +79,28 @@
 
     <main class="paymentContainer">
         <div class="paymentTitle">
-            <h1 id="pageTitle">Cadastro de clientes</h1>
-            <p>Área para cadastro e administração de clientes.</p>
+            <h1 id="pageTitle">Cadastro de alugueis</h1>
+            <p>Área para cadastro e administração de alugueis de patinetes.</p>
         </div>
 
         <div class="paymentLabel">
-            <h5 id="labelTitle">Adicionar cliente: </h5>
-            <label for="nome">Nome: </label>
-            <input id="nome" placeholder="Ex: Francisco, Juca..."/>
+            <h5 id="labelTitle">Adicionar aluguel: </h5>
+            <label for="dataAluguel">Data do aluguel: </label>
+            <input id="dataAluguel" placeholder="..."/>
             <br />
-            <label for="cpf">CPF: </label>
-            <input id="cpf" placeholder="Ex: XXX.XXX.XXX-XX"/>
+            <label for="horaAluguel">Horário do aluguel: </label>
+            <input id="horaAluguel" placeholder="..."/>
             <br />
-            <label for="email">E-mail: </label>
-            <input id="email" placeholder="Ex: usuario@gmail.com"/>
+            <label for="dataDevolucao">Data da devolução: </label>
+            <input id="dataDevolucao" placeholder="..."/>
             <br />
-            <label for="telefone">Telefone: </label>
-            <input id="telefone" placeholder="Ex: (XX) XXXX-XXXX"/>
+            <label for="horaDevolucao">Hora do aluguel: </label>
+            <input id="horaDevolucao" placeholder="..."/>
             <br />
-            <label for="cidade">Cidade: </label>
-            <input id="cidade" placeholder="Ex: Lajeado, Estrela... "/>
+            <label for="valorTotal">Valor: </label>
+            <input id="valorTotal" placeholder="..."/>
             <br />
-            <label for="siglaUf">UF: </label>
-            <select id="siglaUf" placeholder="Ex: PIX, Cartão...">
-            </select>
-            <br />
-            <button id="paymentBtn" onclick="gravarCliente()">Adicionar cliente</button>
+            <button id="paymentBtn" onclick="gravarAluguel()">Adicionar aluguel</button>
         </div>
         
         <div>
@@ -113,17 +109,16 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nome</th>
-                        <th>CPF</th>
-                        <th>E-mail</th>
-                        <th>Telefone</th>
-                        <th>Cidade</th>
-                        <th>UF</th>
+                        <th>Data do aluguel</th>
+                        <th>Horário do aluguel</th>
+                        <th>Data da devolução</th>
+                        <th>Horário da devolução</th>
+                        <th>Valor</th>
                         <th>Excluir</th>
                         <th>Editar</th>
                     </tr>
                 </thead>
-                <tbody id="tbody-clientes">
+                <tbody id="tbody-aluguel">
                 </tbody>
             </table>
         </div>
@@ -131,17 +126,16 @@
 
     
 </body>
-<script src="./js/clientes.js"></script>
+<script src="./js/aluguel.js"></script>
 <script src="./js/fetch.js"></script>
 <script>
-    listarClientes();
+    listarAluguel();
 </script>
 <script>
     async function start()
     {
-        await carregarEstados();
         //verificarLogin();
-        carregarCliente();
+        carregarAluguel();
     }
     start();
 </script>

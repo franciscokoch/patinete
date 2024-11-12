@@ -1,0 +1,86 @@
+.paymentLabel
+{
+    margin-bottom: 50px;
+}
+
+.paymentLabel h5
+{
+    margin-bottom: 20px;
+    color: var(--color-dark-purple);
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.paymentLabel label
+{
+    width: 200px;
+    display: inline-block;
+    margin-right: 10px;
+    color: var(--color-black);
+    font-size: 18px;
+}
+
+.paymentLabel input
+{
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--color-dark-purple);
+    margin-bottom: 20px;
+    background-color: var(--color-purple);
+    color: var(--color-white);
+}
+
+.paymentLabel input::placeholder
+{
+    color: var(--color-white);
+}
+
+.paymentLabel select
+{
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--color-dark-purple);
+    margin-bottom: 20px;
+    background-color: var(--color-purple);
+    color: var(--color-white);
+}
+
+.paymentLabel button
+{
+    padding: 10px 20px;
+    background-color: var(--color-dark-purple);
+    color: var(--color-white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.paymentTable
+{
+    width: 800px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.paymentTable th, .paymentTable td
+{
+    padding: 10px;
+    border: 1px solid var(--color-dark-purple);
+    background-color: var(--color-light-beige);
+    font-size: 16px;
+}
+
+.paymentTable button
+{
+    padding: 5px 10px;
+    background-color: var(--color-dark-purple);
+    color: var(--color-white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+}
