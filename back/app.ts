@@ -1,5 +1,4 @@
-import express from 'express';
-import { Router, Express, Request, Response } from 'express';
+import express, { NextFunction, Express, Response, Request } from 'express';
 import cors from 'cors';
 import { routeCliente } from './route/routeClientes';
 import { routeAluguel } from './route/routeAlugueis';

@@ -10,7 +10,7 @@ body
 {
     display: flex;
     min-height: 100vh;
-    background-color: var(--color-beige);
+    background-color: var(--color-background);
 }
 
 main
@@ -22,7 +22,7 @@ main
 
 #sidebar
 {
-    background-color: var(--color-light-beige);
+    background-color: var(--color-background-sidebar);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -84,13 +84,13 @@ main
 
 .sideItem.active
 {
-    background-color: var(--color-dark-purple);
+    background-color: var(--color-contrast);
 }
 
 .sideItem:hover:not(.active),
 #logoutBtn:hover
 {
-    background-color: var(--color-purple);
+    background-color: var(--color-light-contrast);
 }
 
 .sideItem a
@@ -141,8 +141,8 @@ main
     position: absolute;
     top: 30px;
     right: -10px;
-    background-color: var(--color-dark-purple);
-    color: var(--color-white);
+    background-color: var(--color-contrast);
+    color: var(--color-black);
     border-radius: 100%;
     width: 20px;
     height: 20px;

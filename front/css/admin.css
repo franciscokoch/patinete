@@ -13,13 +13,13 @@
 .adminContent h5
 {
     margin-bottom: 10px;
-    color: var(--color-dark-purple);
+    color: var(--color-title);
     font-size: 20px;
     margin-top: 20px;
 }
 
 .adminContent a
 {
-    color: var(--color-dark-purple);
+    color: var(--color-text);
     text-decoration: none;
 }

@@ -55,5 +55,6 @@ CREATE TABLE "usuarios" (
     "id" serial,
     "usuario" varchar(200) NOT NULL,
     "senha" varchar(200) NOT NULL,
+    "ativo" BOOLEAN NOT NULL,
     PRIMARY KEY ("id")
 );
