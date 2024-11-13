@@ -1,0 +1,40 @@
+#minha-modal {
+	border: solid 1px var(--color-contrast);
+	background: var(--color-background);
+	border-radius: 5px;
+    padding: 15px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+#minha-modal::-webkit-scrollbar {
+	display: none;
+}
+
+#fechar-modal {
+	display: flex;
+  	align-items: center;
+  	clip-path: circle();
+  	position: absolute;
+  	top: 2.5rem;  
+  	right: 1rem;
+  	height: 1rem;
+}
+
+#fechar-modal:hover {
+	transform: scale(1.05);
+}
+
+#abrir-modal {
+	padding: 5px 10px;
+    background-color: var(--color-contrast);
+    color: var(--color-black);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+	margin-top: 20px;
+}

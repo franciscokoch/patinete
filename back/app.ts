@@ -17,11 +17,6 @@ server.use(routePagamento);
 server.use(routePatinete);
 server.use(routeAluguelItem);
 
-server.get('/', async (req: Request, res: Response) => 
-{
-    res.json( { message: "okay" } )
-});
-
 server.listen(port, () =>
 {
     console.log('Server iniciado na porta ' + port );

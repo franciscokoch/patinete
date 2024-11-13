@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./css/variables.css">
     <link rel="stylesheet" href="./css/admin.css">
     <link rel="stylesheet" href="./css/label.css">
+    <link rel="stylesheet" href="./css/modal.css">
     <script src="https://kit.fontawesome.com/69970a57fe.js" crossorigin="anonymous"></script>
     <title>Crie Patinetes</title>
 </head>
@@ -79,21 +80,25 @@
     </nav>
 
     <main class="paymentContainer">
+
         <div class="paymentTitle">
             <h1 id="pageTitle">Cadastro de meios de pagamento</h1>
             <p>Área para cadastro e administração de formas de pagamento.</p>
         </div>
 
-        <div class="paymentLabel">
-            <h5 id="labelTitle">Adicionar forma de pagamento: </h5>
-            <label for="nome">Meio de pagamento: </label>
-            <input id="nome" placeholder="Ex: PIX, Cartão..."/>
-            <br />
-            <button id="paymentBtn" onclick="gravarPagamento()">Adicionar pagamento</button>
-        </div>
+        <dialog id="minha-modal">
+            <div class="paymentLabel">
+                <h5 id="labelTitle">Adicionar forma de pagamento: </h5>
+                <label for="nome">Meio de pagamento: </label>
+                <input id="nome" placeholder="Ex: PIX, Cartão..."/>
+                <br />
+                <button id="paymentBtn" onclick="gravarPagamento()">Adicionar pagamento</button>
+                <button id="fechar-modal">X</button>
+            </div>
+        </dialog>
         
-        <div>
-            <h5>Histórico</h5>
+        <div class="tableContainer">
+            <h5>Relatório</h5>
             <table border="1" class="paymentTable">
                 <thead>
                     <tr>
@@ -107,12 +112,14 @@
                 </tbody>
             </table>
         </div>
+        <button id="abrir-modal">Adicionar pagamento</button>
     </main>
 
     
 </body>
-<script type="javascript" src="./js/fetch.js"></script>
-<script type="javascript" src="./js/pagamento.js"></script>
+<script src="./js/fetch.js"></script>
+<script src="./js/pagamento.js"></script>
+<script src="./js/script.js"></script>
 <script>
     listarPagamento();
 </script>

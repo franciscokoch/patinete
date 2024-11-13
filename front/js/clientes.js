@@ -104,6 +104,7 @@ async function carregarCliente()
         document.getElementById('pageTitle').innerHTML = 'Editar cliente';
         document.getElementById('labelTitle').innerHTML = 'Editar cliente ' + id + ' :';
         document.getElementById('paymentBtn').innerHTML = 'Editar cliente';
+        document.getElementById('abrir-modal').innerHTML = 'Editar cliente';
 
         let result = await fetch(apiUrl+"/cliente/"+id);
         let cliente = await result.json();

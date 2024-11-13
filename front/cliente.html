@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/sidebar.css">
     <link rel="stylesheet" href="./css/variables.css">
     <link rel="stylesheet" href="./css/label.css">
+    <link rel="stylesheet" href="./css/modal.css">
      <script src="https://kit.fontawesome.com/69970a57fe.js" crossorigin="anonymous"></script>
     <title>Crie Patinetes</title>
 </head>
@@ -78,37 +79,42 @@
     </nav>
 
     <main class="paymentContainer">
+
         <div class="paymentTitle">
             <h1 id="pageTitle">Cadastro de clientes</h1>
             <p>Área para cadastro e administração de clientes.</p>
         </div>
 
-        <div class="paymentLabel">
-            <h5 id="labelTitle">Adicionar cliente: </h5>
-            <label for="nome">Nome: </label>
-            <input id="nome" placeholder="Ex: Francisco, Juca..."/>
-            <br />
-            <label for="cpf">CPF: </label>
-            <input id="cpf" placeholder="Ex: XXX.XXX.XXX-XX"/>
-            <br />
-            <label for="email">E-mail: </label>
-            <input id="email" placeholder="Ex: usuario@gmail.com"/>
-            <br />
-            <label for="telefone">Telefone: </label>
-            <input id="telefone" placeholder="Ex: (XX) XXXX-XXXX"/>
-            <br />
-            <label for="cidade">Cidade: </label>
-            <input id="cidade" placeholder="Ex: Lajeado, Estrela... "/>
-            <br />
-            <label for="siglaUf">UF: </label>
-            <select id="siglaUf" placeholder="Ex: PIX, Cartão...">
-            </select>
-            <br />
-            <button id="paymentBtn" onclick="gravarCliente()">Adicionar cliente</button>
-        </div>
+        <dialog id="minha-modal">
+            <div class="paymentLabel">
+                <h5 id="labelTitle">Adicionar cliente: </h5>
+                <br/>
+                <label for="nome">Nome: </label>
+                <input id="nome" placeholder="Ex: Francisco, Juca..."/>
+                <br />
+                <label for="cpf">CPF: </label>
+                <input id="cpf" placeholder="Ex: XXX.XXX.XXX-XX"/>
+                <br />
+                <label for="email">E-mail: </label>
+                <input id="email" placeholder="Ex: usuario@gmail.com"/>
+                <br />
+                <label for="telefone">Telefone: </label>
+                <input id="telefone" placeholder="Ex: (XX) XXXX-XXXX"/>
+                <br />
+                <label for="cidade">Cidade: </label>
+                <input id="cidade" placeholder="Ex: Lajeado, Estrela... "/>
+                <br />
+                <label for="siglaUf">UF: </label>
+                <select id="siglaUf" placeholder="Ex: PIX, Cartão...">
+                </select>
+                <br />
+                <button id="paymentBtn" onclick="gravarCliente()">Adicionar cliente</button>
+                <button id="fechar-modal">X</button>
+            </div>
+        </dialog>
         
-        <div>
-            <h5>Histórico</h5>
+        <div class="tableContainer">
+            <h5>Relatório</h5>
             <table border="1" class="paymentTable">
                 <thead>
                     <tr>
@@ -127,12 +133,13 @@
                 </tbody>
             </table>
         </div>
+        <button id="abrir-modal">Adicionar cliente</button>
     </main>
-
     
 </body>
-<script type="javascript" src="./js/clientes.js"></script>
-<script type="javascript" src="./js/fetch.js"></script>
+<script src="./js/clientes.js"></script>
+<script src="./js/fetch.js"></script>
+<script src="./js/script.js"></script>
 <script>
     listarClientes();
 </script>

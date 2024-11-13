@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/sidebar.css">
     <link rel="stylesheet" href="./css/variables.css">
     <link rel="stylesheet" href="./css/label.css">
+    <link rel="stylesheet" href="./css/modal.css">
      <script src="https://kit.fontawesome.com/69970a57fe.js" crossorigin="anonymous"></script>
     <title>Crie Patinetes</title>
 </head>
@@ -78,33 +79,37 @@
     </nav>
 
     <main class="paymentContainer">
+
         <div class="paymentTitle">
             <h1 id="pageTitle">Cadastro de alugueis</h1>
             <p>Área para cadastro e administração de alugueis de patinetes.</p>
         </div>
 
-        <div class="paymentLabel">
-            <h5 id="labelTitle">Adicionar aluguel: </h5>
-            <label for="dataAluguel">Data do aluguel: </label>
-            <input id="dataAluguel" placeholder="Ex: 12/12/2024"/>
-            <br />
-            <label for="horaAluguel">Horário do aluguel: </label>
-            <input id="horaAluguel" placeholder="Ex: 12:30"/>
-            <br />
-            <label for="dataDevolucao">Data da devolução: </label>
-            <input id="dataDevolucao" placeholder="Ex: 12/12/2024"/>
-            <br />
-            <label for="horaDevolucao">Hora do aluguel: </label>
-            <input id="horaDevolucao" placeholder="Ex: 13:00"/>
-            <br />
-            <label for="valorTotal">Valor: </label>
-            <input id="valorTotal" placeholder="Apenas números"/>
-            <br />
-            <button id="paymentBtn" onclick="gravarAluguel()">Adicionar aluguel</button>
-        </div>
+        <dialog id="minha-modal">
+            <div class="paymentLabel">
+                <h5 id="labelTitle">Adicionar aluguel: </h5>
+                <label for="dataAluguel">Data do aluguel: </label>
+                <input id="dataAluguel" placeholder="Ex: 12/12/2024"/>
+                <br />
+                <label for="horaAluguel">Horário do aluguel: </label>
+                <input id="horaAluguel" placeholder="Ex: 12:30"/>
+                <br />
+                <label for="dataDevolucao">Data da devolução: </label>
+                <input id="dataDevolucao" placeholder="Ex: 12/12/2024"/>
+                <br />
+                <label for="horaDevolucao">Hora do aluguel: </label>
+                <input id="horaDevolucao" placeholder="Ex: 13:00"/>
+                <br />
+                <label for="valorTotal">Valor: </label>
+                <input id="valorTotal" placeholder="50 centavos por minuto"/>
+                <br />
+                <button id="paymentBtn" onclick="gravarAluguel()">Adicionar aluguel</button>
+                <button id="fechar-modal">X</button>
+            </div>
+        </dialog>
         
-        <div>
-            <h5>Histórico</h5>
+        <div class="tableContainer">
+            <h5>Relatório</h5>
             <table border="1" class="paymentTable">
                 <thead>
                     <tr>
@@ -122,12 +127,14 @@
                 </tbody>
             </table>
         </div>
+        <button id="abrir-modal">Adicionar aluguel</button>
     </main>
 
     
 </body>
-<script type="javascript" src="./js/aluguel.js"></script>
-<script type="javascript" src="./js/fetch.js"></script>
+<script src="./js/aluguel.js"></script>
+<script src="./js/fetch.js"></script>
+<script src="./js/script.js"></script>
 <script>
     listarAluguel();
 </script>

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/sidebar.css">
     <link rel="stylesheet" href="./css/variables.css">
     <link rel="stylesheet" href="./css/label.css">
+    <link rel="stylesheet" href="./css/modal.css">
      <script src="https://kit.fontawesome.com/69970a57fe.js" crossorigin="anonymous"></script>
     <title>Crie Patinetes</title>
 </head>
@@ -78,27 +79,31 @@
     </nav>
 
     <main class="paymentContainer">
+
         <div class="paymentTitle">
             <h1 id="pageTitle">Cadastro de patinetes</h1>
             <p>Área para cadastro e administração de patinetes.</p>
         </div>
 
-        <div class="paymentLabel">
-            <h5 id="labelTitle">Adicionar patinete: </h5>
-            <label for="cor">Cor: </label>
-            <input id="cor" placeholder="Ex: Preto, Branco..."/>
-            <br />
-            <label for="marca">Marca: </label>
-            <input id="marca" placeholder="Ex: Bandeirante, Madd Gear..."/>
-            <br />
-            <label for="modelo">Modelo: </label>
-            <input id="modelo" placeholder="Ex: Elétrico..."/>
-            <br />
-            <button id="paymentBtn" onclick="gravarPatinete()">Adicionar patinete</button>
-        </div>
+        <dialog id="minha-modal">
+            <div class="paymentLabel">
+                <h5 id="labelTitle">Adicionar patinete: </h5>
+                <label for="cor">Cor: </label>
+                <input id="cor" placeholder="Ex: Preto, Branco..."/>
+                <br />
+                <label for="marca">Marca: </label>
+                <input id="marca" placeholder="Ex: Bandeirante, Madd Gear..."/>
+                <br />
+                <label for="modelo">Modelo: </label>
+                <input id="modelo" placeholder="Ex: Elétrico..."/>
+                <br />
+                <button id="paymentBtn" onclick="gravarPatinete()">Adicionar patinete</button>
+                <button id="fechar-modal">X</button>
+            </div>
+        </dialog>
         
-        <div>
-            <h5>Histórico</h5>
+        <div class="tableContainer">
+            <h5>Relatório</h5>
             <table border="1" class="paymentTable">
                 <thead>
                     <tr>
@@ -114,12 +119,14 @@
                 </tbody>
             </table>
         </div>
+        <button id="abrir-modal">Adicionar cliente</button>
     </main>
 
     
 </body>
-<script type="javascript" src="./js/patinete.js"></script>
-<script type="javascript" src="./js/fetch.js"></script>
+<script src="./js/patinete.js"></script>
+<script src="./js/fetch.js"></script>
+<script src="./js/script.js"></script>
 <script>
     listarPatinetes();
 </script>
